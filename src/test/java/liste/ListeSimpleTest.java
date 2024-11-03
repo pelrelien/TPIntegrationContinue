@@ -63,6 +63,15 @@ public class ListeSimpleTest {
     }
 
     @Test
+    public void modifiePremierInexistant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.modifiePremier(4, 8);
+        assertEquals(listeATester.toString(), "ListeSimple(Noeud(3), Noeud(2), Noeud(1))");
+    }
+
+    @Test
     public void modifieTous() {
         listeATester.ajout(1);
         listeATester.ajout(2);
@@ -266,5 +275,17 @@ public class ListeSimpleTest {
         listeATester.echanger(r1, r1);
         System.out.println(listeATester);
         assertEquals(listeATester.toString(), "ListeSimple(Noeud(3), Noeud(2), Noeud(1))");
+    }
+
+    public void echangerNoeudTeteDeuxieme() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        Noeud r1 = listeATester.tete;
+        listeATester.ajout(3);
+        Noeud r2 = listeATester.tete;
+        assertEquals(listeATester.toString(), "ListeSimple(Noeud(3), Noeud(2), Noeud(1))");
+        listeATester.echanger(r1, r2);
+        System.out.println(listeATester);
+        assertEquals(listeATester.toString(), "ListeSimple(Noeud(2), Noeud(3), Noeud(1))");
     }
 }
